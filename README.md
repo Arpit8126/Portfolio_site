@@ -20,7 +20,7 @@ A modern, responsive, and animated personal developer portfolio built using **Ne
 
 ## 📸 Demo
 
-👉 [Live Preview](https://your-portfolio-link.com)
+👉 [Live Preview](https://malekverse-omega.vercel.app/)
 
 ---
 
