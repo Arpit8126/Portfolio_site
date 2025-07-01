@@ -2,3 +2,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body{
+    @apply bg-black;
+}
+:root{
+    --color-primary:#64ffda;
+}
