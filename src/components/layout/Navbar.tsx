@@ -1,8 +1,6 @@
 import React from "react";
 import { socialLinks } from "@/constants/socialLink";
 import Link from "next/link";
-import { Mail } from "lucide-react";
-
 const Navbar = () => {
   return (
     <div>
@@ -10,10 +8,8 @@ const Navbar = () => {
     </div>
   );
 };
-
 export default Navbar;
-// components/SocialIcons.tsx
-
+// components
 function SocialIcons() {
   return (
     <div className="fixed top-1/2 left-4 -translate-y-1/2 flex flex-col items-center space-y-6 z-50  ">
@@ -35,13 +31,12 @@ function SocialIcons() {
     </div>
   );
 }
-
+// email floating icon 
 function EmailFloatingIcon() {
   const email = "abdulmalek.swe.585@gmail.com";
   return (
     <div
-      className="fixed top-1/2 -right-[73px] -translate-y-1/2 flex flex-col items-center space-y-6 z-50 
-      before:content-[''] before:w-[2px] before:h-64 before:bg-[#94a3b8] 
+      className="fixed top-1/2 -right-[73px] -translate-y-1/2 flex flex-col items-center space-y-6 z-50 before:content-[''] before:w-[2px] before:h-64 before:bg-[#94a3b8] 
       before:absolute before:top-[140px] before:left-1/2 before:-translate-x-1/2 before:pointer-events-none"
     >
       <a
