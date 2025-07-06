@@ -1,11 +1,12 @@
  
 import Contact from '@/components/contact/Contact';
+import PageLayout from '@/components/ui/pageLayout';
 import React from 'react'; 
 const Home = () => {
   return (
-    <div>  
+    <PageLayout>  
         <Contact/>
-    </div>
+    </PageLayout>
   );
 }; 
 export default Home;

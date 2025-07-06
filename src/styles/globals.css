@@ -5,6 +5,7 @@
 body{
     /* @apply bg-black; */
      background-color:#0a192f;
+     @apply text-[#8892b0]
 }
 :root{
     --color-primary:#64ffda;

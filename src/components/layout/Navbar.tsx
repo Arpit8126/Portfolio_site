@@ -3,8 +3,8 @@ import { socialLinks } from "@/constants/socialLink";
 import Link from "next/link";
 const Navbar = () => {
   return (
-    <div>
-      {SocialIcons()} {EmailFloatingIcon()}
+    <div >
+      <div className="hidden sm:block">{SocialIcons()} {EmailFloatingIcon()}</div>
     </div>
   );
 };
