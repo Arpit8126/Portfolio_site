@@ -45,6 +45,8 @@ A modern, responsive, and animated personal developer portfolio built using **Ne
 │   ├── about.js       # About Page
 │   ├── projects.js    # Projects Page
 │   ├── contact.js     # Contact Page
+├── constants/
+    ├── socialLink.js
 ├── components/
 │   ├── Navbar.js
 │   ├── Footer.js

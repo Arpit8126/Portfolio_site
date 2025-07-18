@@ -70,3 +70,54 @@ body{
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
 }
+
+
+/* hexagone border create bro  */
+.hex {
+    margin-top: 70px;
+    width: 208px;
+    height: 120px;
+    background: #6C6;
+    position: relative; 
+}
+
+.hex:before, .hex:after {
+    content:"";
+    border-left: 104px solid transparent;
+    border-right: 104px solid transparent;
+    position: absolute;
+}
+.hex:before {
+    top: -59px;
+    border-bottom: 60px solid #6C6;
+}
+.hex:after {
+    bottom: -59px;
+    border-top: 60px solid #6C6;
+}
+.hex.inner {
+    background-color:blue;
+    -webkit-transform: scale(.8, .8);
+    -moz-transform: scale(.8, .8);
+    transform: scale(.8, .8);
+    z-index:1;
+}
+.hex.inner:before {
+    border-bottom: 60px solid blue;
+}
+.hex.inner:after {
+    border-top: 60px solid blue;
+}
+.hex.inner2 {
+    background-color:red;
+    -webkit-transform: scale(.8, .8);
+    -moz-transform: scale(.8, .8);
+    transform: scale(.8, .8);
+    z-index:2;
+}
+.hex.inner2:before {
+    border-bottom: 60px solid red;
+}
+.hex.inner2:after {
+    border-top: 60px solid red;
+}
