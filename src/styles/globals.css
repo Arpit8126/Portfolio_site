@@ -1,123 +1,119 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body{
-    /* @apply bg-black; */
-     background-color:#0a192f;
-     @apply text-[#8892b0]
+body {
+  /* @apply bg-black; */
+  background-color: #0a192f;
+  @apply text-[#8892b0];
 }
-:root{
-    --color-primary:#64ffda;
+:root {
+  --color-primary: #64ffda;
 }
 
 .glow-on-hover {
-    width: 220px;
-    height: 50px;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #111;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
 }
 
 .glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px;
-    left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
 }
 
 .glow-on-hover:active {
-    color: #000
+  color: #000;
 }
 
 .glow-on-hover:active:after {
-    background: transparent;
+  background: transparent;
 }
 
 .glow-on-hover:before {
-    opacity: 1;
+  opacity: 1;
 }
 
 .glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #111;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }
 
 @keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
+/* hexaline  */
 
-/* hexagone border create bro  */
-.hex {
-    margin-top: 70px;
-    width: 208px;
-    height: 120px;
-    background: #6C6;
-    position: relative; 
+.hexagon-line {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  stroke-width: 5;
+  animation: draw 1s ease-in-out forwards;
 }
 
-.hex:before, .hex:after {
-    content:"";
-    border-left: 104px solid transparent;
-    border-right: 104px solid transparent;
-    position: absolute;
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
-.hex:before {
-    top: -59px;
-    border-bottom: 60px solid #6C6;
+
+/* Text is hidden initially */
+.hexagon-text {
+  opacity: 0;
+  transform: scale(0.3);
+  transform-origin: center;
+  animation: revealText 0.4s ease-out forwards;
+  animation-delay: 1s; /* start after line animation ends */
 }
-.hex:after {
-    bottom: -59px;
-    border-top: 60px solid #6C6;
-}
-.hex.inner {
-    background-color:blue;
-    -webkit-transform: scale(.8, .8);
-    -moz-transform: scale(.8, .8);
-    transform: scale(.8, .8);
-    z-index:1;
-}
-.hex.inner:before {
-    border-bottom: 60px solid blue;
-}
-.hex.inner:after {
-    border-top: 60px solid blue;
-}
-.hex.inner2 {
-    background-color:red;
-    -webkit-transform: scale(.8, .8);
-    -moz-transform: scale(.8, .8);
-    transform: scale(.8, .8);
-    z-index:2;
-}
-.hex.inner2:before {
-    border-bottom: 60px solid red;
-}
-.hex.inner2:after {
-    border-top: 60px solid red;
+
+@keyframes revealText {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

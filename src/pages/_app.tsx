@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import Loading from "@/components/loader/Loading";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import {
@@ -8,6 +9,8 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { Suspense, useEffect, useState } from "react";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -27,34 +30,84 @@ const jetBrains = JetBrains_Mono({
   variable: "--font-code",
 });
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Initial page load delay
+    const timer = setTimeout(() => setLoading(false), 1600);
+
+    const handleStart = () => setLoading(true);
+    const handleComplete = () => setTimeout(() => setLoading(false), 400);
+
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
+
+    return () => {
+      clearTimeout(timer);
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
+    };
+  }, [router]);
   return (
     <main
       className={`${spaceGrotesk.variable} ${manrope.variable} ${jetBrains.variable}`}
     >
-        <Head>
-       <title>Abdul Malek | Full Stack Developer</title>
-        <meta name="description" content="Hi, I'm Abdul Malek – a Full Stack Developer skilled in React, Next.js, Laravel, and Node.js. Check out my portfolio!" />
-        <meta name="keywords" content="Abdul Malek, Portfolio, Full Stack Developer, React, Laravel, JavaScript, Next.js" />
+      <Head>
+        <title>Abdul Malek | Full Stack Developer</title>
+        <meta
+          name="description"
+          content="Hi, I'm Abdul Malek – a Full Stack Developer skilled in React, Next.js, Laravel, and Node.js. Check out my portfolio!"
+        />
+        <meta
+          name="keywords"
+          content="Abdul Malek, Portfolio, Full Stack Developer, React, Laravel, JavaScript, Next.js"
+        />
         <meta name="author" content="Abdul Malek" />
 
         {/* Open Graph Meta */}
-        <meta property="og:title" content="Abdul Malek | Full Stack Developer" />
-        <meta property="og:description" content="Check out my portfolio and latest web projects." />
-        <meta property="og:image" content="https://yourdomain.com/preview.jpg" />
+        <meta
+          property="og:title"
+          content="Abdul Malek | Full Stack Developer"
+        />
+        <meta
+          property="og:description"
+          content="Check out my portfolio and latest web projects."
+        />
+        <meta
+          property="og:image"
+          content="https://yourdomain.com/preview.jpg"
+        />
         <meta property="og:url" content="https://yourdomain.com" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Meta */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Abdul Malek | Full Stack Developer" />
-        <meta name="twitter:description" content="Check out my portfolio and latest web projects." />
-        <meta name="twitter:image" content="https://yourdomain.com/preview.jpg" />
-
+        <meta
+          name="twitter:title"
+          content="Abdul Malek | Full Stack Developer"
+        />
+        <meta
+          name="twitter:description"
+          content="Check out my portfolio and latest web projects."
+        />
+        <meta
+          name="twitter:image"
+          content="https://yourdomain.com/preview.jpg"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-       <Layout>
-         <Component {...pageProps} />
-       </Layout>
+
+      {loading ? (
+        <Loading />
+      ) : (
+        <Layout>
+          {" "}
+          <Component {...pageProps} />{" "}
+        </Layout>
+      )}
     </main>
   );
 }
