@@ -1,46 +1,75 @@
 import React from "react";
 import { socialLinks } from "@/constants/socialLink";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
 const Navbar = () => {
   return (
-    <div >
-      <div className="hidden sm:block">{SocialIcons()} {EmailFloatingIcon()}</div>
+    <div>
+      <div className="hidden sm:block">
+        <SocialIcons />
+        <EmailFloatingIcon />
+      </div>
     </div>
   );
 };
 export default Navbar;
-// components
+
+// === Social Icons ===
 function SocialIcons() {
   return (
-    <div className="fixed top-1/2 left-4 -translate-y-1/2 flex flex-col items-center space-y-6 z-50  ">
+    <motion.div
+      className="fixed top-1/2 left-4 -translate-y-1/2 flex flex-col items-center space-y-6 z-50"
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.4,
+          },
+        },
+      }}
+    >
       {socialLinks.map(({ href, icon: Icon, label }) => (
-        <Link
+        <motion.div
           key={label}
-          href={href}
-          aria-label={label}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group text-[#d3e2f8] group-hover:text-primary transition-all duration-300 relative before:content-[''] before:w-[2px] before:h-32 before:bg-[#94a3b8] 
-          before:absolute before:top-[230px] before:left-1/2 before:-translate-x-1/2"
+          variants={{
+            hidden: { opacity: 0, x: -30 },
+            visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+          }}
         >
-          <Icon className="w-5 h-5 transform transition-transform duration-300 group-hover:-translate-y-1 group-hover:text-primary" />
-        </Link>
+          <Link
+            href={href}
+            aria-label={label}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group text-[#d3e2f8] group-hover:text-primary transition-all duration-300 relative before:content-[''] before:w-[2px] before:h-32 before:bg-[#94a3b8] 
+            before:absolute before:top-[230px] before:left-1/2 before:-translate-x-1/2"
+          >
+            <Icon className="w-5 h-5 transform transition-transform duration-300 group-hover:-translate-y-1 group-hover:text-primary" />
+          </Link>
+        </motion.div>
       ))}
-
-      {/* Vertical line */}
-    </div>
+    </motion.div>
   );
 }
-// email floating icon 
+
+// === Email Floating Icon ===
 function EmailFloatingIcon() {
   const email = "abdulmalek.swe.585@gmail.com";
+
   return (
-    <div
+    <motion.div
       className="fixed top-1/2 -right-[73px] -translate-y-1/2 flex flex-col items-center space-y-6 z-50 before:content-[''] before:w-[2px] before:h-64 before:bg-[#94a3b8] 
       before:absolute before:top-[140px] before:left-1/2 before:-translate-x-1/2 before:pointer-events-none"
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, delay: 1 }}
     >
       <a
-        href="https://mail.google.com/mail/?view=cm&to=abdulmalek.swe.585@gmail.com"
+        href={`https://mail.google.com/mail/?view=cm&to=${email}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Send Email"
@@ -50,6 +79,6 @@ function EmailFloatingIcon() {
           {email}
         </span>
       </a>
-    </div>
+    </motion.div>
   );
 }
