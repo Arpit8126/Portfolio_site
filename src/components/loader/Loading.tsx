@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Loading = () => {
+  const [fadeOut, setFadeOut] = useState(false);
+
+  useEffect(() => {
+    // Wait for initial animations to finish (1s draw + 1s revealText)
+    const timer = setTimeout(() => {
+      setFadeOut(true);
+    }, 1500); // You can adjust the delay
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
-    <div className="flex justify-center h-screen items-center">
+    <div className={`flex justify-center h-screen items-center transition-all duration-1000 ${fadeOut ? "opacity-0 scale-90" : ""}`}>
       <div className="w-32 h-32 flex items-center justify-center bg-[#0a192f]">
         <svg
           viewBox="0 0 100 100"

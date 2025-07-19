@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     // Initial page load delay
-    const timer = setTimeout(() => setLoading(false), 1600);
+    const timer = setTimeout(() => setLoading(false), 1900);
 
     const handleStart = () => setLoading(true);
     const handleComplete = () => setTimeout(() => setLoading(false), 400);
