@@ -50,10 +50,10 @@ const About = () => {
             "Frontend Developer",
             "Full Stack Developer",
             "Laravel Developer",
-            "Enthusiastic Learner ",
+            "Enthusiastic Learner ",  
           ]}
         />
-      </BlurFadeEffectWrapper> 
+      </BlurFadeEffectWrapper>
       <div className="flex gap-1 justify-center items-center my-4 max-w-screen-md">
         <BlurFadeEffectWrapper delay={0.38}>
           <p className="text-center md:tracking-wider  text-base md:text-md text-zinc-200">
