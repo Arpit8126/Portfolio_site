@@ -1,0 +1,51 @@
+export const projectList = [
+  {
+    image: "/images/wave.png",
+    title: "Bajar Net",
+    description: "A Multivendor ecomerce website",
+    live_link: "https::google,.cm",
+    github_link: "http::github.com",
+  },
+  {
+    image: "/images/wave.png",
+    title: "Bajar Net",
+    description: "A Multivendor ecomerce website",
+    live_link: "https::google,.cm",
+    github_link: "http::github.com",
+  },
+  {
+    image: "/images/wave.png",
+    title: "Bajar Net",
+    description: "A Multivendor ecomerce website",
+    live_link: "https::google,.cm",
+    github_link: "http::github.com",
+  },
+  {
+    image: "/images/wave.png",
+    title: "Bajar Net",
+    description: "A Multivendor ecomerce website",
+    live_link: "https::google,.cm",
+    github_link: "http::github.com",
+  },
+  {
+    image: "/images/wave.png",
+    title: "Bajar Net",
+    description: "A Multivendor ecomerce website",
+    live_link: "https::google,.cm",
+    github_link: "http::github.com",
+  },
+  {
+    image: "/images/wave.png",
+    title: "Bajar Net",
+    description: "A Multivendor ecomerce website",
+    live_link: "https::google,.cm",
+    github_link: "http::github.com",
+  },
+  {
+    image: "/images/wave.png",
+    title: "Bajar Net",
+    description: "A Multivendor ecomerce website",
+    live_link: "https::google,.cm",
+    github_link: "http::github.com",
+  },
+];

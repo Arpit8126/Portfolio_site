@@ -6,7 +6,7 @@ body {
   background-color: #0a192f;
   color: #8892b0;
   overflow-x: hidden;
-  @apply text-[#8892b0];
+  @apply text-[#8892b0] ;
 }
 :root {
   --color-primary: #64ffda;
@@ -120,3 +120,19 @@ body {
   }
 }
  
+
+/* lighting system  */
+.cursor-light {
+  position: absolute;
+  top: -60%;
+  left: 1/2;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+  z-index: 9999;
+  background: radial-gradient(circle, rgba(203, 172, 249, 0.25) 0%, transparent 70%);
+  mix-blend-mode: screen; /* allows light effect on dark or bright backgrounds */
+  filter: blur(80px);
+  opacity: 0.6;
+  /* transition: background 0.3s ease; */
+}

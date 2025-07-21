@@ -7,6 +7,8 @@ import {
   Space_Grotesk,
   Manrope,
   JetBrains_Mono,
+  Inter,
+  
 } from "next/font/google";
 import Head from "next/head";
 import { useRouter } from "next/router";
