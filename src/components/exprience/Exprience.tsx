@@ -1,8 +1,9 @@
 "use client";
 import { experiences } from "@/constants/exprience";
 import { cn } from "@/utils/cn";
-import { motion } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 // lib/data/experience.ts
 
 const Exprience = () => {
@@ -45,7 +46,7 @@ function ExperienceSection() {
                 "border border-white/20"
               )}
             >
-              <div className="absolute -left-3 top-4 w-5 h-5 rounded-full bg-purple-500 shadow-md"></div>
+            
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
                   <Image
@@ -78,6 +79,56 @@ function ExperienceSection() {
           ))}
         </div>
       </div>
+      <Line/>
     </section>
   );
+}
+
+
+const Line = ()=>{ 
+  const containerRef = useRef();
+  const [height, setHeight] = useState(0);
+  useEffect(() => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setHeight(rect.height);
+    }
+  }, [containerRef]);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 10%", "end 90%"], // এলিমেন্ট শুরু থেকে শেষ পর্যন্ত স্ক্রলে progress বাড়বে
+  });
+
+  const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
+  const bgColor = useTransform(scrollYProgress, [0, 1], ["#e0e0e0", "#00f0ff"]);
+
+  return (
+    <div className="py-10">
+      <div
+        ref={containerRef}
+        className="relative  flex flex-col justify-center items-center gap-2"
+      >
+        {Array.from({ length: 10 }).map((_, idx) => (
+          <div className="" key={idx}>
+            <div className="bg-white rounded-full h-32 w-32">{idx}</div>
+          </div>
+        ))}
+        <div
+          style={{
+            height: height + "px",
+          }}
+          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px]  bg-red-900 "
+        >
+          <motion.div
+            style={{
+              height: heightTransform,
+              // opacity: opacityTransform,
+            }}
+            className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full"
+          />
+        </div>
+      </div>
+    </div> 
+
+  )
 }
