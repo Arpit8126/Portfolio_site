@@ -7,18 +7,18 @@ import React, { useEffect, useState } from "react";
 const Home = () => {
   return (
     <>
-      {/* <PageLayout>
+      <PageLayout>
         <About />
       </PageLayout>
       <PageLayout>
         <Exprience />
-      </PageLayout> */}
+      </PageLayout>
       <PageLayout>
         <ProjectCard />
       </PageLayout>
-      {/* <PageLayout>
+      <PageLayout>
         <Contact />
-      </PageLayout> */}
+      </PageLayout>
     </>
   );
 };

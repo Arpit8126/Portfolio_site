@@ -6,10 +6,10 @@ interface BaseType {
   description: string;
 }
 
-export interface projectType extends BaseType {
- 
+export interface projectType extends BaseType { 
   live_link:string,
-  github_link:string
+  github_link:string,
+  stack_image:string[]
 }
 export interface exprienceType extends BaseType {
   date: string;
