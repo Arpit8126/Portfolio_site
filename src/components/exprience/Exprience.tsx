@@ -82,8 +82,8 @@ function ExperienceSection() {
                   repeatType: "reverse",
                   duration: 2,
                   ease: "easeInOut",
-                }} 
-                 className="absolute -left-[80px] top-[45%] -translate-y-1/2 w-20 h-20 rounded-full bg-[radial-gradient(circle,_rgba(255,255,0,0.7)_0%,_rgba(255,255,0,0.7)_50%,_transparent_80%)] blur-3xl pointer-events-none"
+                }}
+                className="absolute -left-[80px] top-[45%] -translate-y-1/2 w-20 h-20 rounded-full bg-[radial-gradient(circle,_rgba(255,255,0,0.7)_0%,_rgba(255,255,0,0.7)_50%,_transparent_80%)] blur-3xl pointer-events-none"
               />
 
               <div className="flex items-center gap-4 mb-4">
@@ -120,7 +120,6 @@ function ExperienceSection() {
           <div
             style={{
               height: height + "px",
-              
             }}
             className="absolute left-0 top-0 overflow-hidden z-[-1] w-[2px] bg-[linear-gradient(to_bottom,transparent_0%,#e5e7eb_50%,transparent_99%)] dark:bg-[linear-gradient(to_bottom,transparent_0%,#525252_50%,transparent_99%)] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
           >

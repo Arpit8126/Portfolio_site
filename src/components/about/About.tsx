@@ -50,7 +50,7 @@ const About = () => {
             "Frontend Developer",
             "Full Stack Developer",
             "Laravel Developer",
-            "Enthusiastic Learner ",  
+            "Enthusiastic Learner ",
           ]}
         />
       </BlurFadeEffectWrapper>
