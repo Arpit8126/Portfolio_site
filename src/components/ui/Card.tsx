@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Card = ({ project }: { project: projectType }) => {
   return (
-    <div className="relative flex flex-col items-center justify-center   bg-gray-700 text-white overflow-hidden  p-3  rounded-xl">
+    <div className="relative flex flex-col items-center justify-center   bg-gray-700 text-white overflow-hidden  p-3  rounded-xl ">
       {/* Gradient blob */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
@@ -34,7 +34,7 @@ const Card = ({ project }: { project: projectType }) => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="relative z-10 max-w-xl text-center space-y-6"
+        className="relative z-10 max-w-xl text-center space-y-6 pt-4"
       >
         <div className="flex items-center">
           {project?.stack_image?.map((item, idx) => (
