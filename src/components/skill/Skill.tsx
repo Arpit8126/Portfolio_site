@@ -12,6 +12,7 @@ import {
 export default function Skills() {
   return (
     <section className="   ">
+     
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-10 text-gray-800">My Tech Stack</h2>
 
@@ -85,6 +86,14 @@ export default function Skills() {
           </div>
         </div>
       </div>
+       {/* github technical  */}
+      <GithubContribute/>
     </section>
   );
+}
+
+const GithubContribute = () =>{
+  return(
+    <>Here my github information </>
+  )
 }

@@ -9,8 +9,7 @@ import React, { useEffect, useState } from "react";
 const Home = () => {
   return (
     <>
-      <Cursor />
-
+      <Cursor /> 
       <PageLayout>
         <About />
       </PageLayout>
