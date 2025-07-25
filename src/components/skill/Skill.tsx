@@ -8,6 +8,7 @@ import {
   Server,
   Database,
 } from "lucide-react";
+import { useEffect } from "react";
 
 export default function Skills() {
   return (
@@ -93,6 +94,13 @@ export default function Skills() {
 }
 
 const GithubContribute = () =>{
+    useEffect(() => {
+    fetch("https://api.github.com/users/AbdulMalek-swe")
+      .then((res) => res.json())
+      .then((data) =>  {
+         console.log(data);
+      });
+  }, []);
   return(
     <>Here my github information </>
   )
