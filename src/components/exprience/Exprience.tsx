@@ -3,6 +3,7 @@ import { experiences } from "@/constants/exprience";
 import { cn } from "@/utils/cn";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 // lib/data/experience.ts
 
@@ -44,11 +45,12 @@ function ExperienceSection() {
   const bgColor = useTransform(scrollYProgress, [0, 1], ["#e0e0e0", "#00f0ff"]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   return (
-    <section className="min-h-screen bg-gradient-to-br    px-4">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-4xl font-bold text-white mb-12 text-center">
-          Experience
-        </h2>
+    <section className="min-h-screen bg-gradient-to-br    px-4 font-mono">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-4xl font-bold text-[#ccd6f6] mb-12 flex items-center gap-4 ">
+          <span className="shrink-0"> Where I&lsquo;ve Worked</span>
+          <hr className="w-full h-[1px] bg-[#233554] border-none" />
+        </div>
         <div ref={containerRef} className="relative   border-purple-600 pl-6  ">
           {experiences.map((exp, i) => (
             <motion.div
@@ -86,7 +88,7 @@ function ExperienceSection() {
                 className="absolute -left-[80px] top-[45%] -translate-y-1/2 w-20 h-20 rounded-full bg-[radial-gradient(circle,_rgba(255,255,0,0.7)_0%,_rgba(255,255,0,0.7)_50%,_transparent_80%)] blur-3xl pointer-events-none"
               />
 
-              <div className="flex items-center gap-4 mb-4">
+              <div className="flex items-center gap-4 mb-2">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
                   <Image
                     src={exp.logo}
@@ -97,18 +99,22 @@ function ExperienceSection() {
                   />
                 </div>
                 <div>
-                  <p className="font-semibold text-lg ">{exp.name}</p>
-                  <p className="text-sm opacity-80 text-[#64ffda]">
+                  <p className="font-semibold text-[22px] text-[#ccd6f6] ">{exp.name}</p>
+                  <Link
+                    target="_blank"
+                    href={exp?.live_link}
+                    className="text-xl opacity-80 text-[#64ffda]"
+                  >
                     {exp.title}
-                  </p>
+                  </Link>
                 </div>
               </div>
-              <p className="text-sm opacity-70 mb-2">{exp.date}</p>
+              <p className="text-sm opacity-70 mb-4 text-[#8892b0]">{exp.date}</p>
               <ul>
                 {exp?.description?.split("▹").map((item, idx) => (
                   <li
                     key={idx}
-                    className="relative elative before:content-['▹'] before:absolute before:left-0 before:text-[#64ffda]  px-7 mb-2.5 text-lg leading-[1.3] font-normal font-space"
+                    className="relative elative before:content-['▹'] before:absolute before:left-0 before:text-[#64ffda]  px-7 mb-2.5 text-lg leading-[1.3] font-normal font-space text-[#8892b0]"
                   >
                     {item}
                   </li>
