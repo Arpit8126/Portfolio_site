@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
+import Tooltip from "./tooltip/Tooltip";
 
 const Card = ({ project }: { project: projectType }) => {
   return (
@@ -38,20 +39,27 @@ const Card = ({ project }: { project: projectType }) => {
       >
         <div className="flex items-center">
           {project?.stack_image?.map((item, idx) => (
-            <div
+            <Tooltip
               key={idx}
-              className={`border-2 border-white rounded-full w-10 h-10 flex items-center justify-center p-1 ${
-                idx !== 0 ? "-ml-1.5" : ""
-              }`}
+              content={
+                item.split("/")[item.split("/")?.length - 1].split(".")[0]
+              }
+              position="right"
             >
-              <Image
-                alt={item}
-                src={item}
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
-            </div>
+              <div
+                className={`border-2 border-white rounded-full w-10 h-10 flex items-center justify-center p-1 ${
+                  idx !== 0 ? "-ml-1.5" : ""
+                }`}
+              >
+                <Image
+                  alt={item}
+                  src={item}
+                  width={40}
+                  height={40}
+                  className="rounded-full"
+                />
+              </div>
+            </Tooltip>
           ))}
         </div>
 
@@ -60,7 +68,7 @@ const Card = ({ project }: { project: projectType }) => {
         </h1>
         <p className="text-sm text-gray-300">{project?.description}</p>
         <a
-          href="https://github.com"
+          href= {project?.github_link}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-6 py-2 border border-white rounded-full hover:bg-white hover:text-black transition"
