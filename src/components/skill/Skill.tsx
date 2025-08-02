@@ -25,6 +25,7 @@ import { FaGithub, FaMapMarkerAlt } from "react-icons/fa";
 import { BsClockHistory } from "react-icons/bs";
 import { AiOutlineProject } from "react-icons/ai";
 import { BiGitRepoForked } from "react-icons/bi";
+import Image from "next/image";
 
 ChartJS.register(
   ArcElement,
@@ -139,7 +140,7 @@ const GithubContribute = () => {
         console.log(data);
         setInfo(data);
       });
-  }, []); 
+  }, []);
   return (
     <>
       <GitHubInsights info={info} />{" "}
@@ -179,77 +180,38 @@ const GitHubInsights = ({ info }: any) => {
   const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365.25);
   const year = Number(diffInYears.toFixed(2));
   return (
-    <div className="min-h-screen bg-[#0b1120] text-white p-6 grid md:grid-cols-2 gap-6">
-      {/* Left Side */}
-      <div className="bg-[#111827] p-6 rounded-xl shadow-md">
-        <h2 className="text-xl font-bold text-cyan-400 mb-4">
-          Abdul Malek Sarkar
-        </h2>
-        {/* <img
-          src={`https://ghchart.rshah.org/${info.login}`}
-          alt="GitHub Contributions"
-          style={{ width: "100%", maxWidth: "600px" }}
-        /> */}
-        <ul className="space-y-2 text-sm text-gray-300 mb-6">
-          <li className="flex items-center gap-2">
-            <FaGithub className="text-green-400" />
-            46 Contributions in 2025
-          </li>
-          <li className="flex items-center gap-2">
-            <AiOutlineProject className="text-orange-400" />
-            {info?.public_repos} Public Repos
-          </li>
-          <li className="flex items-center gap-2">
-            <BsClockHistory className="text-blue-400" />
-            Joined GitHub {year} years ago
-          </li>
-          <li className="flex items-center gap-2">
-            <FaMapMarkerAlt className="text-green-500" /> {info?.location}
-          </li>
-        </ul>
+    <div className="p-6 bg-[#0f172a] text-white">
+  <h2 className="text-2xl font-semibold mb-4">GitHub Overview</h2>
 
-        <div>
-          <Line
-            data={contributionsData}
-            options={{
-              responsive: true,
-              plugins: { legend: { display: false } },
-              scales: {
-                y: {
-                  beginAtZero: true,
-                  ticks: { color: "#fff" },
-                },
-                x: {
-                  ticks: { color: "#fff" },
-                },
-              },
-            }}
-          />
-          <p className="text-sm text-gray-400 mt-2">
-            contributions in the last year
-          </p>
-        </div>
-      </div>
-
-      {/* Right Side */}
-      <div className="bg-[#111827] p-6 rounded-xl shadow-md flex flex-col items-center">
-        <h3 className="text-xl font-semibold text-cyan-400 mb-4">
-          Top Languages by Repo
-        </h3>
-        <div className="w-64">
-          <Doughnut data={languagesData} />
-        </div>
-        <div className="mt-6 text-sm text-gray-300 space-y-1">
-          <p className="flex items-center gap-2">
-            <span className="inline-block w-3 h-3 bg-yellow-400 rounded-full"></span>
-            JavaScript <span className="ml-auto">71.5%</span>
-          </p>
-          <p className="flex items-center gap-2">
-            <span className="inline-block w-3 h-3 bg-purple-500 rounded-full"></span>
-            TypeScript <span className="ml-auto">28.5%</span>
-          </p>
-        </div>
-      </div>
+  <div className="grid md:grid-cols-2 gap-6">
+    {/* Profile Details Card */}
+    <div className="bg-[#1f2937] rounded-2xl shadow-md p-4 flex items-center justify-center">
+      <img
+        src={`http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=abdulmalek-swe&theme=algolia`}
+        alt="GitHub Profile Details"
+        className="max-w-full h-auto object-contain"
+      />
     </div>
+
+    {/* Contribution Graph */}
+    {/* <div className="bg-[#1f2937] rounded-2xl shadow-md p-4 flex items-center justify-center">
+      <img
+        src={`https://ghchart.rshah.org/abdulmalek-swe`}
+        alt="GitHub Contributions"
+        className="max-w-full h-auto object-contain"
+      />
+    </div> */}
+
+    {/* Repo by Language */}
+    <div className="bg-[#1f2937] rounded-2xl shadow-md p-4 flex items-center justify-center">
+      <img
+        src={`http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=abdulmalek-swe&theme=algolia`}
+        alt="Top Languages"
+        className="max-w-full h-auto object-contain"
+      />
+    </div>
+  </div>
+</div>
+
   );
 };
