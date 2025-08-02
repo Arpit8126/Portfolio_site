@@ -8,7 +8,7 @@ import {
   Server,
   Database,
 } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -131,22 +131,24 @@ export default function Skills() {
 }
 
 const GithubContribute = () => {
+  const [info, setInfo] = useState({});
   useEffect(() => {
     fetch("https://api.github.com/users/AbdulMalek-swe")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        setInfo(data);
       });
-  }, []);
+  }, []); 
   return (
     <>
-      <GitHubInsights />{" "}
+      <GitHubInsights info={info} />{" "}
     </>
   );
 };
 // components/GitHubInsights.tsx
 
-const GitHubInsights = () => {
+const GitHubInsights = ({ info }: any) => {
   const contributionsData = {
     labels: ["07", "09", "11", "01", "02", "03", "04", "06"],
     datasets: [
@@ -171,15 +173,23 @@ const GitHubInsights = () => {
       },
     ],
   };
-
+  const now: any = new Date();
+  const createdAt: any = new Date(info?.created_at);
+  const diffInMs = now - createdAt;
+  const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365.25);
+  const year = Number(diffInYears.toFixed(2));
   return (
     <div className="min-h-screen bg-[#0b1120] text-white p-6 grid md:grid-cols-2 gap-6">
       {/* Left Side */}
       <div className="bg-[#111827] p-6 rounded-xl shadow-md">
         <h2 className="text-xl font-bold text-cyan-400 mb-4">
-          AbdulMal (M Abdul Mal Naeem)
+          Abdul Malek Sarkar
         </h2>
-
+        {/* <img
+          src={`https://ghchart.rshah.org/${info.login}`}
+          alt="GitHub Contributions"
+          style={{ width: "100%", maxWidth: "600px" }}
+        /> */}
         <ul className="space-y-2 text-sm text-gray-300 mb-6">
           <li className="flex items-center gap-2">
             <FaGithub className="text-green-400" />
@@ -187,14 +197,14 @@ const GitHubInsights = () => {
           </li>
           <li className="flex items-center gap-2">
             <AiOutlineProject className="text-orange-400" />
-            25 Public Repos
+            {info?.public_repos} Public Repos
           </li>
           <li className="flex items-center gap-2">
             <BsClockHistory className="text-blue-400" />
-            Joined GitHub 3 years ago
+            Joined GitHub {year} years ago
           </li>
           <li className="flex items-center gap-2">
-            <FaMapMarkerAlt className="text-green-500" /> Dhaka
+            <FaMapMarkerAlt className="text-green-500" /> {info?.location}
           </li>
         </ul>
 
