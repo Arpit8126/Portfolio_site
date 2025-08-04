@@ -18,7 +18,7 @@ export const projectList: projectType[] = [
   },
   {
     logo: "/project/1.png",
-    title: "Bajar Net (Multivendor Ecomerce)",
+    title: "ZanMart (Single Vendor Ecomerce)",
     description:
       "A Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce website",
     live_link: "https://multivendor-dun.vercel.app/",
