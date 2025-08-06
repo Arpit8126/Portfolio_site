@@ -26,6 +26,7 @@ import { BsClockHistory } from "react-icons/bs";
 import { AiOutlineProject } from "react-icons/ai";
 import { BiGitRepoForked } from "react-icons/bi";
 import Image from "next/image";
+import { log } from "@/lib/log";
 
 ChartJS.register(
   ArcElement,
@@ -137,7 +138,8 @@ const GithubContribute = () => {
     fetch("https://api.github.com/users/AbdulMalek-swe")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
+        log("Skill","show github info", data)
         setInfo(data);
       });
   }, []);
