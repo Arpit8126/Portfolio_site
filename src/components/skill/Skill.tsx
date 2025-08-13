@@ -40,8 +40,36 @@ ChartJS.register(
 );
 
 export default function Skills() {
+  const [hover, setHover] = useState(false);
+  const balls = 7;
+  const radius = 100;
   return (
-    <section className="   ">
+    <section className="  ">
+      <div
+        className="relative w-[300px] h-[300px] border   mx-auto"
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      >
+        <div className={`absolute inset-0 transition-transform duration-1000 ease-linear ${hover?'animate-spin-slower':''}`}>
+          {Array.from({ length: balls }).map((_, i) => {
+            const angle = (i * 2 * Math.PI) / balls;
+            const x = hover ? Math.cos(angle) * radius : 0;
+            const y = hover ? Math.sin(angle) * radius : 0;
+
+            return (
+              <div
+                key={i}
+                className="absolute top-1/2 left-1/2 w-12 h-12 rounded-full transition-all duration-700 ease-in-out"
+                style={{
+                  backgroundColor: `hsl(${(i * 360) / balls}, 80%, 50%)`,
+                  transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+                }}
+              ></div>
+            );
+          })}
+        </div>
+      </div>
+
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-10 text-gray-800">
           My Tech Stack
@@ -139,7 +167,7 @@ const GithubContribute = () => {
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        log("Skill","show github info", data)
+        log("Skill", "show github info", data);
         setInfo(data);
       });
   }, []);
@@ -183,37 +211,26 @@ const GitHubInsights = ({ info }: any) => {
   const year = Number(diffInYears.toFixed(2));
   return (
     <div className="p-6 bg-[#0f172a] text-white">
-  <h2 className="text-2xl font-semibold mb-4">GitHub Overview</h2>
+      <h2 className="text-2xl font-semibold mb-4">GitHub Overview</h2>
 
-  <div className="grid md:grid-cols-2 gap-6">
-    {/* Profile Details Card */}
-    <div className="bg-[#1f2937] rounded-2xl shadow-md p-4 flex items-center justify-center">
-      <img
-        src={`http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=abdulmalek-swe&theme=algolia`}
-        alt="GitHub Profile Details"
-        className="max-w-full h-auto object-contain"
-      />
+      <div className="flex gap-4">
+        {/* Profile Details Card */}
+        <div className="bg-[#1f2937] rounded-2xl shadow-md p-4 flex items-center justify-center">
+          <img
+            src={`http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=abdulmalek-swe&theme=algolia`}
+            alt="GitHub Profile Details"
+            className="max-w-full h-auto object-contain"
+          />
+        </div>
+        {/* Repo by Language */}
+        <div className="bg-[#1f2937] rounded-2xl shadow-md p-4 flex items-center justify-center">
+          <img
+            src={`http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=abdulmalek-swe&theme=algolia`}
+            alt="Top Languages"
+            className="max-w-full h-auto object-contain"
+          />
+        </div>
+      </div>
     </div>
-
-    {/* Contribution Graph */}
-    {/* <div className="bg-[#1f2937] rounded-2xl shadow-md p-4 flex items-center justify-center">
-      <img
-        src={`https://ghchart.rshah.org/abdulmalek-swe`}
-        alt="GitHub Contributions"
-        className="max-w-full h-auto object-contain"
-      />
-    </div> */}
-
-    {/* Repo by Language */}
-    <div className="bg-[#1f2937] rounded-2xl shadow-md p-4 flex items-center justify-center">
-      <img
-        src={`http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=abdulmalek-swe&theme=algolia`}
-        alt="Top Languages"
-        className="max-w-full h-auto object-contain"
-      />
-    </div>
-  </div>
-</div>
-
   );
 };
