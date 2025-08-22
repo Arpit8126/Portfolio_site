@@ -155,7 +155,8 @@ export default function Skills() {
         </div>
       </div>
       {/* github technical  */}
-      <GithubContribute />
+   
+      <div className="flex justify-center">   <GithubContribute /></div>
     </section>
   );
 }
