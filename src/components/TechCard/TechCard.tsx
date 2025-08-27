@@ -8,7 +8,7 @@ const TechCard = () => {
     <div>
       <div className="grid md:grid-cols-3 gap-8">
         {/* Frontend */}
-        {techStack.map((stack, i) => (
+        {techStack.map((stack:any, i:any) => (
           <div key={i}>
             <TechChildCard stack={stack} />
           </div>
@@ -19,8 +19,23 @@ const TechCard = () => {
 };
 
 export default TechCard;
+type TechChild = {
+  name: string;
+  icon: React.ReactNode;
+};
 
-const TechChildCard = ({ stack }) => {
+type TechStack = {
+  name: string;
+  id: number;
+  description: string;
+  children: TechChild[];
+};
+
+type Props = {
+  stack: TechStack;
+};
+
+const TechChildCard: React.FC<Props>  = ({ stack }) => {
   const [hover, setHover] = useState(false);
   const balls = 7;
   const radius = 100;
@@ -42,7 +57,7 @@ const TechChildCard = ({ stack }) => {
             hover ? "animate-spin-slower" : ""
           }`}
         >
-          {stack.children.map((tech, i) => {
+          {stack.children.map((tech: any, i: any) => {
             const len = stack.children.length;
             const angle = (i * 2 * Math.PI) / len;
             const x = Math.cos(angle) * radius;
