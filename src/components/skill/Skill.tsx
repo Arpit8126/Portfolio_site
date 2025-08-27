@@ -27,6 +27,7 @@ import { AiOutlineProject } from "react-icons/ai";
 import { BiGitRepoForked } from "react-icons/bi";
 import Image from "next/image";
 import { log } from "@/lib/log";
+import TechCard from "../TechCard/TechCard";
 
 ChartJS.register(
   ArcElement,
@@ -40,123 +41,21 @@ ChartJS.register(
 );
 
 export default function Skills() {
-  const [hover, setHover] = useState(false);
-  const balls = 7;
-  const radius = 100;
+ 
   return (
     <section className="  ">
-      <div
-        className="relative w-[300px] h-[300px] border   mx-auto"
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        <div className={`absolute inset-0 transition-transform duration-1000 ease-linear ${hover?'animate-spin-slower':''}`}>
-          {Array.from({ length: balls }).map((_, i) => {
-            const angle = (i * 2 * Math.PI) / balls;
-            const x = hover ? Math.cos(angle) * radius : 0;
-            const y = hover ? Math.sin(angle) * radius : 0;
-
-            return (
-              <div
-                key={i}
-                className="absolute top-1/2 left-1/2 w-12 h-12 rounded-full transition-all duration-700 ease-in-out"
-                style={{
-                  backgroundColor: `hsl(${(i * 360) / balls}, 80%, 50%)`,
-                  transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                }}
-              ></div>
-            );
-          })}
-        </div>
-      </div>
+      
 
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-10 text-gray-800">
           My Tech Stack
         </h2>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Frontend */}
-          <div className="border rounded-xl p-6 shadow hover:shadow-xl transition">
-            <h3 className="text-xl font-semibold mb-4 text-gray-700 border-b pb-2">
-              Frontend
-            </h3>
-
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12">
-                  sdf
-                  {/* <LottiePlayer
-                    autoplay
-                    loop
-                    src="https://assets4.lottiefiles.com/packages/lf20_jtbfg2nb.json" // React animation
-                  /> */}
-                </div>
-                <span className="text-lg text-gray-700 font-medium">React</span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <FileCode className="text-purple-600 w-6 h-6" />
-                <span className="text-lg text-gray-700 font-medium">
-                  Tailwind CSS
-                </span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <FileCode className="text-blue-500 w-6 h-6" />
-                <span className="text-lg text-gray-700 font-medium">
-                  TypeScript
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Backend */}
-          <div className="border rounded-xl p-6 shadow hover:shadow-xl transition">
-            <h3 className="text-xl font-semibold mb-4 text-gray-700 border-b pb-2">
-              Backend
-            </h3>
-
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <Server className="text-green-600 w-6 h-6" />
-                <span className="text-lg text-gray-700 font-medium">
-                  Node.js
-                </span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <Database className="text-green-800 w-6 h-6" />
-                <span className="text-lg text-gray-700 font-medium">
-                  MongoDB
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Tools */}
-          <div className="border rounded-xl p-6 shadow hover:shadow-xl transition">
-            <h3 className="text-xl font-semibold mb-4 text-gray-700 border-b pb-2">
-              Tools
-            </h3>
-
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <GitBranch className="text-orange-600 w-6 h-6" />
-                <span className="text-lg text-gray-700 font-medium">Git</span>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <Paintbrush className="text-pink-500 w-6 h-6" />
-                <span className="text-lg text-gray-700 font-medium">Figma</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <TechCard />
       </div>
       {/* github technical  */}
-   
-      <div className="flex justify-center">   <GithubContribute /></div>
+      <div className="flex justify-center">
+        <GithubContribute />
+      </div>
     </section>
   );
 }
