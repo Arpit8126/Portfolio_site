@@ -2,7 +2,7 @@ import { techStack } from "@/constants/techStack";
 import { FileCode } from "lucide-react";
 import React, { useState } from "react";
 import Tooltip from "../ui/tooltip/Tooltip";
-
+import { motion } from "framer-motion";
 const TechCard = () => {
   return (
     <div>
@@ -27,7 +27,7 @@ const TechChildCard = ({ stack }) => {
 
   return (
     <div
-      className="relative w-[300px] h-[300px] mx-auto overflow-hidden"
+      className="relative w-[300px] h-[320px] mx-auto overflow-hidden  "
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
@@ -43,7 +43,8 @@ const TechChildCard = ({ stack }) => {
           }`}
         >
           {stack.children.map((tech, i) => {
-            const angle = (i * 2 * Math.PI) / balls;
+            const len = stack.children.length;
+            const angle = (i * 2 * Math.PI) / len;
             const x = Math.cos(angle) * radius;
             const y = Math.sin(angle) * radius;
 
@@ -52,7 +53,7 @@ const TechChildCard = ({ stack }) => {
                 key={i}
                 className="absolute top-1/2 left-1/2 w-12 h-12 rounded-full transition-all duration-700 ease-in-out flex items-center justify-center"
                 style={{
-                  backgroundColor: `hsl(${(i * 360) / balls}, 80%, 50%)`,
+                  backgroundColor: `hsl(${(i * 360) / len}, 80%, 50%)`,
                   transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
                 }}
               >
@@ -62,10 +63,9 @@ const TechChildCard = ({ stack }) => {
           })}
         </div>
       </div>
-
       {/* Hover Details Card */}
       <div
-        className={`absolute inset-0 border rounded-xl p-6 shadow   transition-all duration-700 ${
+        className={`absolute inset-0 border rounded-xl   p-6 shadow   transition-all duration-700 ${
           !hover
             ? "opacity-100 scale-100"
             : "opacity-0 scale-90 pointer-events-none"
@@ -74,20 +74,31 @@ const TechChildCard = ({ stack }) => {
         <h3 className="text-xl font-semibold mb-4 text-gray-700 border-b pb-2">
           {stack?.name}
         </h3>
+        <TechList stack={stack} />
+      </div>
+    </div>
+  );
+};
 
-        <div className="space-y-4">
-          {stack.children.map(
-            (tech: { name: string; icon: React.ReactNode }, idx: any) => (
-              <div className="flex items-center gap-3" key={idx}>
-                {/* <FileCode className="text-purple-600 w-6 h-6" /> */}
-                {tech.icon}
-                <span className="text-lg text-gray-700 font-medium">
-                  {tech.name}
-                </span>
-              </div>
-            )
-          )}
-        </div>
+const TechList = ({ stack }: any) => {
+  return (
+    <div className=" overflow-hidden  h-[85%] rounded-xl  shadow">
+      <div className=" animate-marquee-vertical flex flex-col gap-3 ">
+        {[
+          ...stack.children,
+          ...stack.children,
+          ...stack.children,
+          ...stack.children,
+          ...stack.children,
+          ...stack.children,
+        ].map((tech: { name: string; icon: React.ReactNode }, idx: number) => (
+          <div key={idx} className="flex items-center gap-3">
+            {tech.icon}
+            <span className="text-lg text-gray-700 font-medium">
+              {tech.name}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );
