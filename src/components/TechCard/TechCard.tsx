@@ -8,7 +8,7 @@ const TechCard = () => {
     <div>
       <div className="grid md:grid-cols-3 gap-8">
         {/* Frontend */}
-        {techStack.map((stack:any, i:any) => (
+        {techStack.map((stack: any, i: any) => (
           <div key={i}>
             <TechChildCard stack={stack} />
           </div>
@@ -35,11 +35,9 @@ type Props = {
   stack: TechStack;
 };
 
-const TechChildCard: React.FC<Props>  = ({ stack }) => {
+const TechChildCard: React.FC<Props> = ({ stack }) => {
   const [hover, setHover] = useState(false);
-  const balls = 7;
   const radius = 100;
-
   return (
     <div
       className="relative w-[300px] h-[320px] mx-auto overflow-hidden  "
@@ -72,7 +70,7 @@ const TechChildCard: React.FC<Props>  = ({ stack }) => {
                   transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
                 }}
               >
-                <Tooltip content={tech.name}>{tech.icon}</Tooltip>
+                <Tooltip content={tech.name} position="left">{tech.icon}</Tooltip>
               </div>
             );
           })}
@@ -96,24 +94,20 @@ const TechChildCard: React.FC<Props>  = ({ stack }) => {
 };
 
 const TechList = ({ stack }: any) => {
+  const result = Array.from({ length: 9 }).flatMap(() => stack.children); 
   return (
     <div className=" overflow-hidden  h-[85%] rounded-xl  shadow">
       <div className=" animate-marquee-vertical flex flex-col gap-3 ">
-        {[
-          ...stack.children,
-          ...stack.children,
-          ...stack.children,
-          ...stack.children,
-          ...stack.children,
-          ...stack.children,
-        ].map((tech: { name: string; icon: React.ReactNode }, idx: number) => (
-          <div key={idx} className="flex items-center gap-3">
-            {tech.icon}
-            <span className="text-lg text-gray-700 font-medium">
-              {tech.name}
-            </span>
-          </div>
-        ))}
+        {result.map(
+          (tech: { name: string; icon: React.ReactNode }, idx: number) => (
+            <div key={idx} className="flex items-center gap-3">
+              {tech.icon}
+              <span className="text-lg text-gray-700 font-medium">
+                {tech.name}
+              </span>
+            </div>
+          )
+        )}
       </div>
     </div>
   );
