@@ -48,7 +48,7 @@ function SocialIcons() {
             className="group text-[#d3e2f8] group-hover:text-primary transition-all duration-300 relative before:content-[''] before:w-[2px] before:h-32 before:bg-[#94a3b8] 
             before:absolute before:top-[230px] before:left-1/2 before:-translate-x-1/2"
           >
-            <Icon className="w-5 h-5 transform transition-transform duration-300 group-hover:-translate-y-1 group-hover:text-primary" />
+            <Icon className="w-10 h-10 transform transition-transform duration-300 group-hover:-translate-y-1 group-hover:text-primary" />
           </Link>
         </motion.div>
       ))}
@@ -58,7 +58,7 @@ function SocialIcons() {
 
 // === Email Floating Icon ===
 function EmailFloatingIcon() {
-  const email = "abdulmalek.swe.585@gmail.com";
+  const email = "pandeyarpit8395@gmail.com";
 
   return (
     <motion.div
@@ -73,7 +73,7 @@ function EmailFloatingIcon() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Send Email"
-        className="text-sm group text-[#d3e2f8] rotate-90 hover:text-primary transition-all duration-300 hover:-translate-y-1"
+        className="text-2xl group text-[#d3e2f8] rotate-90 hover:text-primary transition-all duration-300 hover:-translate-y-1"
       >
         <span className="transform transition-transform duration-300 group-hover:-translate-y-1">
           {email}

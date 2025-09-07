@@ -15,7 +15,7 @@ const ProjectCard = () => {
       </div>
       <div className="flex justify-center mt-8">
         <Link
-          href="https://github.com/AbdulMalek-swe?tab=repositories"
+          href="https://github.com/Arpit8126"
           target="_blank"
           className="px-5 py-3 mt-5   text-primary border rounded-[4px] 
     transition-all duration-500 ease-in-out

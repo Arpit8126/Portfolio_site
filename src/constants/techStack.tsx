@@ -35,13 +35,13 @@ export const techStack: any = [
     children: [
       {
         id: 1,
-        name: "HTML5",
+        name: "HTML",
         icon: <FaHtml5 className="text-4xl" />,
         type: "markup",
       },
       {
         id: 2,
-        name: "CSS3",
+        name: "CSS",
         icon: <IoLogoCss3 className="text-4xl" />,
         type: "style",
       },
@@ -57,26 +57,15 @@ export const techStack: any = [
         icon: <RiTailwindCssFill className="text-4xl" />,
         type: "framework",
       },
+      
       {
         id: 5,
-        name: "Bootstrap",
-        icon: <FaBootstrap className="text-4xl" />,
-        type: "framework",
-      },
-      {
-        id: 6,
-        name: "Material UI",
-        icon: <SiMui className="text-4xl" />,
-        type: "library",
-      },
-      {
-        id: 7,
         name: "React.js",
         icon: <FaReact className="text-4xl" />,
         type: "library",
       },
       {
-        id: 8,
+        id: 6,
         name: "Next.js",
         icon: <RiNextjsFill className="text-4xl" />,
         type: "framework",
@@ -102,51 +91,21 @@ export const techStack: any = [
       },
       {
         id: 3,
-        name: "Nest.js",
-        icon: <SiNestjs className="text-4xl" />,
-        type: "framework",
-      },
-      {
-        id: 4,
-        name: "Laravel",
-        icon: <FaLaravel className="text-4xl" />,
-        type: "framework",
-      },
-      {
-        id: 5,
         name: "MongoDB",
         icon: <SiMongodb className="text-4xl" />,
         type: "database",
       },
       {
-        id: 6,
+        id: 4,
         name: "PostgreSQL",
         icon: <BiLogoPostgresql className="text-4xl" />,
         type: "database",
       },
       {
-        id: 7,
+        id: 5,
         name: "MySQL",
         icon: <TbBrandMysql className="text-4xl" />,
         type: "database",
-      },
-      // {
-      //   id: 8,
-      //   name: "C",
-      //   icon: <SiC className="text-4xl" />,
-      //   type: "language",
-      // },
-      // {
-      //   id: 9,
-      //   name: "C++",
-      //   icon: <TbBrandCpp className="text-4xl" />,
-      //   type: "language",
-      // },
-      {
-        id: 10,
-        name: "PHP",
-        icon: <SiPhp className="text-4xl" />,
-        type: "language",
       },
     ],
   },
@@ -156,42 +115,15 @@ export const techStack: any = [
     description:
       "Supporting tools, state management, collaboration, and API testing",
     children: [
+      
       {
         id: 1,
-        name: "Redux",
-        icon: <SiRedux className="text-4xl" />,
-        type: "state management",
-      },
-      {
-        id: 2,
         name: "GitHub",
         icon: <FaGithub className="text-4xl" />,
         type: "version control",
       },
-      {
-        id: 3,
-        name: "Storybook",
-        icon: <SiStorybook className="text-4xl" />,
-        type: "UI documentation",
-      },
-      {
-        id: 4,
-        name: "Jira",
-        icon: <SiJira className="text-4xl" />,
-        type: "project management",
-      },
-      {
-        id: 5,
-        name: "Slack",
-        icon: <FaSlack className="text-4xl" />,
-        type: "team communication",
-      },
-      {
-        id: 6,
-        name: "Postman",
-        icon: <SiPostman className="text-4xl" />,
-        type: "API testing",
-      },
+      
+      
     ],
   },
 ];

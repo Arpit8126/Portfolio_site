@@ -47,7 +47,8 @@ export default function Skills() {
       
 
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-10 text-gray-800">
+        <h2 className="text-4xl font-bold mb-10 text-blue-600"
+>
           My Tech Stack
         </h2>
         <TechCard />
@@ -63,7 +64,7 @@ export default function Skills() {
 const GithubContribute = () => {
   const [info, setInfo] = useState({});
   useEffect(() => {
-    fetch("https://api.github.com/users/AbdulMalek-swe")
+    fetch("https://api.github.com/users/Arpit8126")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -117,17 +118,19 @@ const GitHubInsights = ({ info }: any) => {
         {/* Profile Details Card */}
         <div className="bg-[#1f2937] rounded-2xl shadow-md p-4 flex items-center justify-center">
           <img
-            src={`http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=abdulmalek-swe&theme=algolia`}
+            src={`https://github-readme-stats.vercel.app/api?username=Arpit8126&show_icons=true&theme=radical`}
             alt="GitHub Profile Details"
-            className="max-w-full h-auto object-contain"
+            className="w-[800px] h-[800px] object-contain"
+            style={{ maxWidth: '100%', height: 'auto' }}
           />
         </div>
         {/* Repo by Language */}
         <div className="bg-[#1f2937] rounded-2xl shadow-md p-4 flex items-center justify-center">
           <img
-            src={`http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=abdulmalek-swe&theme=algolia`}
+            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=Arpit8126&layout=compact&theme=radical`}
             alt="Top Languages"
-            className="max-w-full h-auto object-contain"
+            className="w-[800px] h-[800px] object-contain"
+            style={{ maxWidth: '100%', height: 'auto' }}
           />
         </div>
       </div>

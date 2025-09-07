@@ -7,7 +7,7 @@ export const projectList: projectType[] = [
     description:
       "A Multivendor ecomerce websiteA Multivendor quiecomerce ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce website",
     live_link: "https://multivendor-dun.vercel.app/",
-    github_link: "https://github.com/AbdulMalek-swe/multivendor",
+    github_link: "https://github.com/Arpit8126",
     stack_image: [
       "/stack/tailwind.svg",
       "/stack/next.svg",
@@ -22,7 +22,7 @@ export const projectList: projectType[] = [
     description:
       "A Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce websiteA Multivendor ecomerce website",
     live_link: "https://multivendor-dun.vercel.app/",
-    github_link: "https://github.com/AbdulMalek-swe/multivendor",
+    github_link: "https://github.com/Arpit8126",
     stack_image: [
       "/stack/tailwind.svg",
       "/stack/next.svg",
@@ -38,7 +38,7 @@ export const projectList: projectType[] = [
       "A full-stack web application featuring a real-time chat system using WebSocket (or Socket.io) and a blog section with nested comments. The chat allows users to send and receive messages instantly, while the blog section supports posting articles and interactive user discussions through threaded comments.",
     live_link: "https://social-chat-app-nextjs-x475.vercel.app/",
     github_link:
-      "https://github.com/AbdulMalek-swe/api.social_chat_app_with_node",
+      "https://github.com/Arpit8126",
     stack_image: [
       "/stack/tailwind.svg",
       "/stack/next.svg",

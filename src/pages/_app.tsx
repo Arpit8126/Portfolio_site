@@ -44,21 +44,21 @@ export default function App({ Component, pageProps }: AppProps) {
       className={`${spaceGrotesk.variable} ${manrope.variable} ${jetBrains.variable}`}
     >
       <Head>
-        <title>Abdul Malek | Full Stack Developer</title>
+        <title>Arpit Pandey | Full Stack Developer</title>
         <meta
           name="description"
-          content="Hi, I'm Abdul Malek – a Full Stack Developer skilled in React, Next.js, Laravel, and Node.js. Check out my portfolio!"
+          content="Hi, I'm Arpit Pandey – a Full Stack Developer skilled in React, Next.js, Laravel, and Node.js. Check out my portfolio!"
         />
         <meta
           name="keywords"
-          content="Abdul Malek, Portfolio, Full Stack Developer, React, Laravel, JavaScript, Next.js"
+          content="Arpit Pandey, Portfolio, Full Stack Developer, React, Laravel, JavaScript, Next.js"
         />
-        <meta name="author" content="Abdul Malek" />
+        <meta name="author" content="Arpit Pandey" />
 
         {/* Open Graph Meta */}
         <meta
           property="og:title"
-          content="Abdul Malek | Full Stack Developer"
+          content="Arpit Pandey | Full Stack Developer"
         />
         <meta
           property="og:description"
@@ -75,7 +75,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Abdul Malek | Full Stack Developer"
+          content="Arpit Pandey | Full Stack Developer"
         />
         <meta
           name="twitter:description"

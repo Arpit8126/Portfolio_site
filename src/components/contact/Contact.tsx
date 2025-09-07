@@ -37,20 +37,20 @@ const Contact = () => {
             className="text-[#ccd6f6] text-3xl sm:text-4xl md:text-5xl font-semibold"
             variants={itemVariants}
           >
-            Crafting Scalable, Elegant{" "}
-            <span className="text-[#cbacf9]">Web Solutions</span> That Make a
-            Difference.
+            Crafting Passionate, Innovative Web Experiences{" "}
+            <span className="text-[#cbacf9]">As a BCA Data Science Student </span> 
+            Driven to Learn, Create, and Make an Impact.
+
           </motion.h1>
         </Tooltip>
-        <motion.p className="text-xl text-white" variants={itemVariants}>
-          I&apos;m not actively seeking opportunities, but always open to
-          meaningful conversations—feel free to reach out anytime.
-        </motion.p>
+        
       </motion.div>
 
       <Tooltip content="Reach out anytime">
         <motion.a
-          href="mailto:your.email@example.com"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=pandeyarpit8395@gmail.com"
+          target="_blank"
+
           className="glow-on-hover relative px-6 py-3 text-white bg-[#111] rounded-lg z-10 inline-block text-center"
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}

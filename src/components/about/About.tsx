@@ -4,9 +4,11 @@ import Image from "next/image";
 import { BlurFadeEffectWrapper } from "../ui/BlurFadeEffectWrapper";
 import { FlipWords } from "../ui/Flipwords";
 import { getCurrentAge } from "@/utils/cn";
+
 const About = () => {
   return (
-    <div className=" flex flex-col items-center justify-center gap-2 md:gap-3">
+    <div className="flex flex-col items-center justify-center gap-4 md:gap-6 mb-12">
+      {/* Increased gap from gap-2/md:gap-3 to gap-4/md:gap-6 and added mb-12 */}
       <motion.div
         initial={{ opacity: 0, scale: 0.5, rotate: 120 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -17,8 +19,8 @@ const About = () => {
           className="relative rounded-full mx-auto object-cover aspect-square z-10 ring-2 ring-offset-purple ring-offset-2 ring-blue-200"
           src="/images/profile.jpg"
           alt="my-picture"
-          height={180}
-          width={180}
+          height={300}
+          width={300}
           priority
         ></Image>
       </motion.div>
@@ -27,6 +29,7 @@ const About = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
         className="flex text-center md:tracking-wider mb-4 text-md md:text-lg lg:text-xl font-semibold"
+        style={{ fontSize: "40px" }}
       >
         Hi!{" "}
         <motion.div
@@ -41,25 +44,27 @@ const About = () => {
         >
           👋{" "}
         </motion.div>{" "}
-        I&apos;m Abdul Malek
+        I&apos;m Arpit Pandey
       </motion.div>
       <BlurFadeEffectWrapper delay={0.3}>
         <FlipWords
           className="text-center font-bold text-[40px] md:text-5xl lg:text-6xl leading-6"
           words={[
             "Frontend Developer",
-            "Full Stack Developer",
-            "Laravel Developer",
-            "Enthusiastic Learner ",
+            "Backend Developer",
+            "Full Stack Web Developer",
+            "Machine Learning Enthusiast",
           ]}
         />
       </BlurFadeEffectWrapper>
       <div className="flex gap-1 justify-center items-center my-4 max-w-screen-md">
         <BlurFadeEffectWrapper delay={0.38}>
-          <p className="text-center md:tracking-wider  text-base md:text-md text-zinc-200">
-            A {getCurrentAge()}-year-old Software Engineering graduate from{" "}
-            <span className="text-[#cbacf9] font-semibold">Bangladesh</span>,
-            passionate about frontend development and driven by a creative
+          <p className="text-center md:tracking-wider text-[25px] md:text-md text-zinc-200">
+            A 19 year-old student persuing BCA(DATA SCIENCE) from{" "}
+            <span className="text-[#cbacf9] font-semibold">
+              GLA University,Mathura
+            </span>
+            , passionate about frontend development and driven by a creative
             mindset and attention to detail
           </p>
         </BlurFadeEffectWrapper>

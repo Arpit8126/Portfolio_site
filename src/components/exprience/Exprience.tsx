@@ -38,19 +38,20 @@ function ExperienceSection() {
   }, [containerRef]);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 40%", "end 100%"], // এলিমেন্ট শুরু থেকে শেষ পর্যন্ত স্ক্রলে progress বাড়বে
+    offset: ["start 40%", "end 100%"], 
   });
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const bgColor = useTransform(scrollYProgress, [0, 1], ["#e0e0e0", "#00f0ff"]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   return (
-    <section className="min-h-screen bg-gradient-to-br    px-4 font-mono">
+    <section className="min-h-screen bg-gradient-to-br    px-2 font-mono">
       <div className="max-w-4xl mx-auto">
-        <div className="text-4xl font-bold text-[#ccd6f6] mb-12 flex items-center gap-4 ">
-          <span className="shrink-0"> Where I&lsquo;ve Worked</span>
-          <hr className="w-full h-[1px] bg-[#233554] border-none" />
-        </div>
+        <div className="text-5xl font-bold text-[#ccd6f6] mb-16 flex items-center gap-4">
+  <span className="shrink-0">Who Am I</span>
+  <hr className="w-full h-[1px] bg-[#233554] border-none" />
+</div>
+
         <div ref={containerRef} className="relative   border-purple-600 pl-6  ">
           {experiences.map((exp, i) => (
             <motion.div
@@ -61,9 +62,10 @@ function ExperienceSection() {
               viewport={{ once: true }}
               variants={cardVariants}
               className={cn(
-                "relative bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-xl text-white",
-                "border border-white/20 my-3"
-              )}
+  "relative bg-white/10 backdrop-blur-md p-12 rounded-3xl shadow-2xl text-white max-w-5xl mx-auto",
+  "border border-white/20 my-6"
+)}
+
             >
               {/* <div className="absolute -left-20 top-1/2 -translate-y-1/2 w-40 h-40 bg-[radial-gradient(circle,_rgba(255,255,255,0.6)_0%,_transparent_70%)] blur-2xl opacity-50 pointer-events-none" /> */}
 

@@ -7,7 +7,7 @@ import Tooltip from "./tooltip/Tooltip";
 
 const Card = ({ project }: { project: projectType }) => {
   return (
-    <div className="relative flex flex-col items-center justify-center   bg-gray-700 text-white overflow-hidden  p-3  rounded-xl ">
+    <div className="relative flex flex-col items-center justify-center bg-gray-700 text-white overflow-hidden p-3 rounded-xl">
       {/* Gradient blob */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
@@ -20,7 +20,7 @@ const Card = ({ project }: { project: projectType }) => {
         }}
         className="absolute -left-[104px] top-1/3 -translate-y-1/2 w-40 h-40 rounded-full bg-purple-600 blur-2xl"
       />
-      {/* image show  */}
+      {/* image show */}
       <div className="relative bg-green-900 px-3 py-3 border-2 rounded-xl">
         <Image
           alt={project?.title}
@@ -41,9 +41,7 @@ const Card = ({ project }: { project: projectType }) => {
           {project?.stack_image?.map((item, idx) => (
             <Tooltip
               key={idx}
-              content={
-                item.split("/")[item.split("/")?.length - 1].split(".")[0]
-              }
+              content={item.split("/")[item.split("/")?.length - 1].split(".")[0]}
               position="right"
             >
               <div
@@ -63,18 +61,23 @@ const Card = ({ project }: { project: projectType }) => {
           ))}
         </div>
 
-        <h1 className="text-lg md:text-xl font-semibold text-nowrap">
-          {project?.title}
-        </h1>
-        <p className="text-sm text-gray-300">{project?.description}</p>
-        <a
-          href= {project?.github_link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-6 py-2 border border-white rounded-full hover:bg-white hover:text-black transition"
-        >
-          View on GitHub
-        </a>
+        <h1 className="text-4xl md:text-5xl font-extrabold text-nowrap">
+  Project
+</h1>
+
+<p className="text-2xl md:text-3xl text-gray-300 font-semibold">
+  Coming Soon...
+</p>
+
+<a
+  href="https://github.com/Arpit8126" // Replace with your GitHub user link here
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block px-8 py-3 border-2 border-white rounded-full hover:bg-white hover:text-black transition text-xl md:text-2xl font-semibold"
+>
+  Coming Soon...
+</a>
+
       </motion.div>
     </div>
   );
