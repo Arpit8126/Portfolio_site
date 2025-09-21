@@ -17,7 +17,7 @@ const About = () => {
       >
         <Image
           className="relative rounded-full mx-auto object-cover aspect-square z-10 ring-2 ring-offset-purple ring-offset-2 ring-blue-200"
-          src="/images/profile.jpg"
+          src="/images/profile2.jpg"
           alt="my-picture"
           height={300}
           width={300}
